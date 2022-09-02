@@ -1,0 +1,48 @@
+ALGORITHM somme_elements_distincts
+VAR
+    tab1,tab2 : ARRAY_OF INTEGER[10];
+    l,k,i,j,somme :INTEGER;
+BEGIN
+    // on crée une boucle permettant de remplir des 2 tableaux
+    FOR i FROM 0 TO 9 STEP 1  DO
+        Write("Donnez le "i+1"eme nombre du tableau tab1");
+        read(tab1[i]);
+        Write("Donnez le "i+1"eme nombre du tableau tab2");
+        read(tab2[i]);
+    END_FOR
+
+    // initialisation de la somme
+    somme := 0
+
+    // comparaison des elements de tab1 à tab2
+    FOR j FROM 0 TO 9 STEP 1  DO
+        l:=0;
+        FOR k FROM 0 TO 9 STEP 1  DO
+            IF (tab1[j]<>tab2[k]) THEN
+                l:=l+1
+            END_IF
+        END_FOR
+        IF (l=10) THEN
+            somme:=somme+tab1[j];
+        END_IF
+    END_FOR
+
+
+    // comparaison des elements de tab2 à tab1
+     FOR k FROM 0 TO 9 STEP 1  DO
+        l:=0;
+        FOR j FROM 0 TO 9 STEP 1  DO
+            IF (tab2[k]<>tab1[j]) THEN
+                l:=l+1
+            END_IF
+        END_FOR
+        IF (l=10) THEN
+            somme:=somme+tab2[k];
+        END_IF
+    END_FOR
+
+    // affichage de la somme
+    Write("la somme des elements distincts des deux tableaux est de : ",somme);
+
+END
+ 

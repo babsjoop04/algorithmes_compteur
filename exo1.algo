@@ -1,0 +1,29 @@
+ALGORITHM compteur
+VAR
+    nb_mots,nb_voyelles : INTEGER;
+    i : CHAR
+BEGIN
+    Write("donnez le premier caractere en minuscule");
+    read(i);
+    nb_mots := 0;
+    nb_voyelles := 0 ;
+    REPEAT
+        // comptage du nombre de voyelles de la phrase
+        IF (i:= 'a' OR i:= 'o' OR i:= 'e' OR i:= 'i' OR i:= 'u' OR i:= 'y') THEN
+            nb_voyelles := nb_voyelles + 1;
+        END_IF
+
+        // comptage du nombre de mots
+        IF (i := " ") THEN
+            nb_mots := nb_mots + 1;
+        END_IF
+
+        Write("donnez un autre caractere");
+        read(i);
+
+    UNTIL (i := ".")
+
+    // affichage du nombre de mots et de voyelles de la phrase
+
+    Write("cette phrase compte : ",nb_mots," mots et ",nb_voyelles," voyelles");
+END
