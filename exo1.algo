@@ -1,27 +1,26 @@
 ALGORITHM compteur
 VAR
-    nb_mots,nb_voyelles : INTEGER;
-    i : CHAR
+    i,nb_mots,nb_voyelles : INTEGER;
+    phrase : STRING[100]
 BEGIN
-    Write("donnez le premier caractere en minuscule");
-    read(i);
+    Write("donnez la phrase");
+    read(phrase);
+    i := 0;
     nb_mots := 0;
     nb_voyelles := 0 ;
     REPEAT
         // comptage du nombre de voyelles de la phrase
-        IF (i:= 'a' OR i:= 'o' OR i:= 'e' OR i:= 'i' OR i:= 'u' OR i:= 'y') THEN
+        IF (phrase[i]="a" OR phrase[i]="o" OR phrase[i]="e" OR phrase[i]= "i" OR phrase[i]= "u" OR phrase[i]= "y") THEN
             nb_voyelles := nb_voyelles + 1;
         END_IF
 
         // comptage du nombre de mots
-        IF (i := " ") THEN
+        IF (phrase[i] := " ") THEN
             nb_mots := nb_mots + 1;
         END_IF
+        i := i + 1;
 
-        Write("donnez un autre caractere");
-        read(i);
-
-    UNTIL (i := ".")
+    UNTIL (phrase[i] := ".")
 
     // affichage du nombre de mots et de voyelles de la phrase
 
