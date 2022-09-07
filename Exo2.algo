@@ -33,6 +33,7 @@ BEGIN
             somme:=somme+tab2[j];
         END_IF
     END_FOR
+// un commentaire simple
 
 
     
