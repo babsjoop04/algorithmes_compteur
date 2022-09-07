@@ -3,24 +3,25 @@ VAR
     i,nb_mots,nb_voyelles : INTEGER;
     phrase : STRING[100]
 BEGIN
+   REPEAT 
     Write("donnez la phrase");
     read(phrase);
-    i := 0;
+    
+    UNTIL (phrase[phrase.lenght-1] = ".")
     nb_mots := 0;
     nb_voyelles := 0 ;
-    REPEAT
+    
+    FOR i TO 0 FOR phrase.lenght-2 DO
         // comptage du nombre de voyelles de la phrase
         IF (phrase[i]="a" OR phrase[i]="o" OR phrase[i]="e" OR phrase[i]= "i" OR phrase[i]= "u" OR phrase[i]= "y") THEN
             nb_voyelles := nb_voyelles + 1;
         END_IF
 
         // comptage du nombre de mots
-        IF (phrase[i] := " ") THEN
+        IF (phrase[i] = " ") THEN
             nb_mots := nb_mots + 1;
         END_IF
-        i := i + 1;
-
-    UNTIL (phrase[i] := ".")
+    END_FOR
 
     // affichage du nombre de mots et de voyelles de la phrase
 
